@@ -20,14 +20,12 @@ public class SuccessorProblem {
     }
 
     public void union(int val1, int val2) throws Exception {
-        System.out.printf("%d was unioned with %d.%n", val1, val2);
         int parent1 = components.find(val1);
         int parent2 = components.find(val2);
         int newMaximum = Math.max(this.maximums[parent1], this.maximums[parent2]);
         this.maximums[parent1] = newMaximum;
         this.maximums[parent2] = newMaximum;
         this.components.union(parent1, parent2);
-        System.out.printf("New maximum is %d.%n", this.maximums[components.find(val1)]);
     }
 
     public void remove(int val) throws Exception {
