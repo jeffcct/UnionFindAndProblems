@@ -7,7 +7,7 @@ public class PercolationStats {
     private int trials;
     private double val = 1.96;
 
-    public PercolationStats(int n, int trials) {
+    public PercolationStats(int n, int trials) throws Exception {
         if (n <= 0 || trials <= 0) {
             throw new IllegalArgumentException("must have at least 1 trial and n in percolation stats.");
         }
@@ -39,7 +39,7 @@ public class PercolationStats {
         return this.mean() + val * this.stddev() / Math.sqrt(this.trials);
 
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         if (args.length != 2) {
             return;
         }
@@ -53,7 +53,7 @@ public class PercolationStats {
         StdOut.printf("%-23s = [%f, %f]", "95% confidence interval", ps.confidenceLo(), ps.confidenceHi());
     }
 
-    private static int runPercolationInstance(int n) {
+    private static int runPercolationInstance(int n) throws Exception {
         Percolation percolation = new Percolation(n);
         while (!percolation.percolates()) {
             int row = StdRandom.uniformInt(n) + 1;

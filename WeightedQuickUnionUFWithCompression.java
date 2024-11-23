@@ -85,4 +85,8 @@ public class WeightedQuickUnionUFWithCompression {
             return String.format("Parent Addresses: %s", Arrays.toString(this.parents));
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println("Hello, World");
+    }
 }
